@@ -1,0 +1,67 @@
+﻿@model OrderViewModel
+@{
+    ViewData["Title"] = "Создать заказ";
+    if (TempData["CreatedOrderId"] is not null)
+    {
+        <div class="alert alert-success">
+            Успешно создан заказ № @TempData["CreatedOrderId"]
+        </div>
+    }
+}
+<h1>@ViewData["Title"]</h1>
+<div class="text-center">
+    <form asp-action="Index" asp-controller="Home" asp-antiforgery="true">        
+        <div>
+            <label class="form-label">Данные заказа:</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="PickUpDate-addon"><label asp-for="PickUpDate"></label></span>
+                <input asp-for="PickUpDate" class="form-control" aria-describedby="PickUpDate-addon" />
+
+                <span class="input-group-text" id="CargoWeight-addon"><label asp-for="CargoWeight"></label></span>
+                <input asp-for="CargoWeight" class="form-control" aria-describedby="CargoWeight-addon" />
+            </div>
+
+            <label class="form-label">Данные отправителя:</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="SenderAddressCityName-addon"><label asp-for="SenderAddress.CityName"></label></span>
+                <input asp-for="SenderAddress.CityName" class="form-control" aria-describedby="SenderAddressCityName-addon" />
+
+                <span class="input-group-text" id="SenderAddressZipCode-addon"><label asp-for="SenderAddress.ZipCode"></label></span>
+                <input asp-for="SenderAddress.ZipCode" class="form-control" aria-describedby="SenderAddressZipCode-addon" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="SenderAddressStreet-addon"><label asp-for="SenderAddress.Street"></label></span>
+                <input asp-for="SenderAddress.Street" class="form-control" aria-describedby="SenderAddressStreet-addon" />
+
+                <span class="input-group-text" id="SenderAddressHouse-addon"><label asp-for="SenderAddress.House"></label></span>
+                <input asp-for="SenderAddress.House" class="form-control" aria-describedby="SenderAddressHouse-addon" />
+
+                <span class="input-group-text" id="SenderAddressApartment-addon"><label asp-for="SenderAddress.Apartment"></label></span>
+                <input asp-for="SenderAddress.Apartment" class="form-control" aria-describedby="SenderAddressApartment-addon" />
+            </div>
+
+            <label class="form-label">Данные получателя:</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="RecipientAddressCityName-addon"><label asp-for="RecipientAddress.CityName"></label></span>
+                <input asp-for="RecipientAddress.CityName" class="form-control" aria-describedby="RecipientAddressCityName-addon" />
+
+                <span class="input-group-text" id="RecipientAddressZipCode-addon"><label asp-for="RecipientAddress.ZipCode"></label></span>
+                <input asp-for="RecipientAddress.ZipCode" class="form-control" aria-describedby="RecipientAddressZipCode-addon" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="RecipientAddressStreet-addon"><label asp-for="RecipientAddress.Street"></label></span>
+                <input asp-for="RecipientAddress.Street" class="form-control" aria-describedby="RecipientAddressStreet-addon" />
+
+                <span class="input-group-text" id="RecipientAddressHouse-addon"><label asp-for="RecipientAddress.House"></label></span>
+                <input asp-for="RecipientAddress.House" class="form-control" aria-describedby="RecipientAddressHouse-addon" />
+
+                <span class="input-group-text" id="RecipientAddressApartment-addon"><label asp-for="RecipientAddress.Apartment"></label></span>
+                <input asp-for="RecipientAddress.Apartment" class="form-control" aria-describedby="RecipientAddressApartment-addon" />
+            </div>
+
+            <div class="validation" asp-validation-summary="All"></div>
+
+            <button type="submit" class="btn btn-primary">Создать заказ</button>
+        </div>
+    </form>
+</div>

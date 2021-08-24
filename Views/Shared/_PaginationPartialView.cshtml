@@ -1,0 +1,12 @@
+﻿@model PaginationViewModel
+
+<div>
+    @if (!Model.IsFirstPage)
+    {
+        <a asp-action="Orders" asp-controller="Home" asp-route-page="@Model.PrevPage">&lt;&lt;&lt;</a>
+    }
+    @if (!Model.IsLastPage)
+    {
+        <a asp-action="Orders" asp-controller="Home" asp-route-page="@Model.NextPage">&gt;&gt;&gt;</a>
+    }
+</div>
